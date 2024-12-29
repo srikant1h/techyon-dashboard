@@ -1,0 +1,16 @@
+
+$primary-color: #007bff;
+$secondary-color: #28a745;
+$danger-color: #dc3545;
+$text-color: #333;
+
+body {
+    font-family: Arial, sans-serif;
+    color: $text-color;
+    background-color: #f8f9fa;
+}
+
+.App {
+    max-width: 1200px;
+    margin: auto;
+}

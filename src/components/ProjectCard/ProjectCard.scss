@@ -1,0 +1,18 @@
+.project-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .project-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    &.completed { border-left: 4px solid green; }
+    &.in-progress { border-left: 4px solid blue; }
+    &.archived { border-left: 4px solid gray; }
+    &.delayed { border-left: 4px solid red; }
+}
