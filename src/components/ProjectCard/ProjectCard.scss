@@ -1,18 +1,86 @@
-.project-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-    .project-header {
-        display: flex;
-        justify-content: space-between;
-    }
-    .project-footer {
-        display: flex;
-        justify-content: space-between;
-    }
-    &.completed { border-left: 4px solid green; }
-    &.in-progress { border-left: 4px solid blue; }
-    &.archived { border-left: 4px solid gray; }
-    &.delayed { border-left: 4px solid red; }
+$border-radius: 10px;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$font-size-small: 12px;
+$primary-bg: #e9ecef; 
+$accent-color: #4caf50; 
+$status-bg: #d7c700; 
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+
+%card-style {
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: 10px;
+  margin: 5px;
+  background: #fff;
+}
+
+.project-card {
+  @extend %card-style;
+
+  .project-header, .project-footer {
+    @include flex-space-between;
+    font-size: $font-size-small;
+  }
+  .project-bold-text{
+    font-weight: bolder;
+    font-size: large;
+  }
+  .icon-size{
+    font-size: large;
+  }
+}
+
+.status-badge {
+  position: relative;
+  left: 75%;
+  width: fit-content;
+  background: $status-bg;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+  position: relative;
+  height: 12px;
+  background: $primary-bg;
+  border-radius: $border-radius;
+  overflow: hidden;
+  width: 90%;
+
+  .progress {
+    height: 100%;
+    background: $accent-color;
+    border-radius: $border-radius 0 0 $border-radius;
+  }
+  .progress-label{
+    color: #555;;
+    font-size: $font-size-small
+  }
+
+
+  .progress-indicators {
+    @include flex-space-between;
+    position: absolute;
+    top: 16px;
+    width: 100%;
+    font-size: $font-size-small;
+    color: #555;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+  
+  
